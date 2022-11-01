@@ -4,17 +4,11 @@ class _Transaction:
         self.__date = date
         self.__amount = amount
 
-    @property
     def getDesc(self):
         return self.__desc
 
-    @property
     def getDate(self):
         return self.__date
-
-    @property
-    def getDate(self):
-        return self.__amount
 
 
 class CreditTransaction(_Transaction):
