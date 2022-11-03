@@ -9,25 +9,19 @@ def floatToMoney(number:int):
 
 
 
-balance.addExpense(FixedCost(120000, "Pago gimnasio ohana", ["agosto", "septiembre","noviembre","diciembre"]))
-balance.addExpense(FixedCost(700000,"Pago arriendo Eliseos",["julio","agosto","septiembre","octubre","noviembre","diciembre"]))
-balance.addExpense(FixedCost(125000,"Salud mama",["julio","agosto","octubre","noviembre","diciembre"]))
-balance.addExpense(FixedCost(1130000,"Deuda de 10 millones a mi hermano",["julio","agosto","septiembre","octubre","noviembre","diciembre"]))
-balance.addExpense(FixedCost(167000,"Plan internet movistar",["julio","agosto","septiembre","octubre","noviembre","diciembre"]))
-balance.addExpense(FixedCost(32000,"Plan celular movistar",["julio","agosto","septiembre","octubre","noviembre","diciembre"]))
-balance.addExpense(FixedCost(1752000,"Pago cuota del carro a Sufi",["agosto","septiembre","octubre","noviembre","diciembre"]))
-balance.addExpense(VariableCost(320000,"Pago soat carro","agosto"))
-balance.addExpense(VariableCost(3980771,"Deuda tarjeta credito","octubre"))
+balance.addFixedCost(FixedCost(120000, "Pago gimnasio ohana","2022/07/01","2022/12/01"))
+balance.addFixedCost(FixedCost(700000,"Pago arriendo Eliseos","2022/07/01","2022/12/01"))
+balance.addFixedCost(FixedCost(125000,"Salud mama","2022/07/01","2022/12/01"))
+balance.addFixedCost(FixedCost(1130000,"Deuda de 10 millones a mi hermano","2022/07/01","2022/12/01"))
+balance.addFixedCost(FixedCost(167000,"Plan internet movistar","2022/07/01","2022/12/01"))
+balance.addFixedCost(FixedCost(32000,"Plan celular movistar","2022/01/07","2022/12/01"))
+balance.addFixedCost(FixedCost(1752000,"Pago cuota del carro a Sufi","2022/08/01","2022/12/01"))
+balance.addCost(Cost(320000,"Pago soat carro","2022/08/15"))
+balance.addCost(Cost(3980771,"Deuda tarjeta credito","2022/10/30"))
 
-balance.addIncome(FixedIncome(5500000,"Pago nomina Seeri",["julio","agosto","septiembre","octubre","noviembre","diciembre"]))
-balance.addIncome(VariableIncome(1000000,"Anticipo 40% asesoria pulumi","octubre"))
-balance.addIncome(VariableIncome(3857779,"Saldo tarjet debito","octubre"))
+balance.addFixedIncome(FixedIncome(5500000,"Pago nomina Seeri","2022/07/01","2022/12/01"))
+balance.addIncome(Income(1000000,"Anticipo 40% asesoria pulumi","2022/10/28"))
+balance.addIncome(Income(3857779,"Saldo tarjeta debito","2022/10/30"))
 
 
-print('Total balance = {0}'.format(floatToMoney(balance.getBalance())))
-print('Total costs = {0}'.format(floatToMoney(balance.getTotalCostAmount())))
-print('Total incomes = {0}'.format(floatToMoney(balance.getTotalIncomeAmount())))
-
-analyzer = Analyzer(balance)
-print(analyzer.monthlyRemain(["noviembre","diciembre"]))
-
+print(balance.getMonthBalance(12))

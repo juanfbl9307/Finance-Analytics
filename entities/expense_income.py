@@ -1,82 +1,81 @@
+import datetime
+
+def formatDate(strDate:str):
+        ## year/month/day format
+        return datetime.datetime.strptime(strDate, '%Y/%m/%d')
+
 
 class Cash:
-    description: str
-    def __init__(self,amount:float, description: str):
-        self.description = description
+    def __init__(self, amount: float, description: str):
         self.__amount = amount
+        self.__description = description
 
     def getAmount(self):
         return self.__amount
+    
+    def getDescription(self):
+        return self.__description
 
-    def setAmount(self,amount):
-        self.__amount = amount
-        pass
+class __FixedCash(Cash):
+    def __init__(self, amount: float, description: str, initialDate: str,endDate: str):
+        self.__endDate = endDate
+        self.__initialDate = initialDate
+        super().__init__(amount,description)
 
+    
+    def getEndDate(self):
+        return self.__endDate
+
+    def getMonthCost(self,month: int):
+        month = datetime.date(1900, month, 1).strftime('%B')
+        amount = 0
+        if self.formatDate(self.__initialDate) <= month <= self.formatDate(self.__endDate):
+            amount += self.getAmount()
+            
+        return amount
+
+    def getInitialDate(self):
+        return self.__initialDate
+
+    def getDurationInDays(self):
+        diff = self.formatDate(self.__initialDate) - self.formatDate(self.__endDate)
+        return diff.date
+
+    def getDurationInMonths(self):
+        diff = self.formatDate(self.__initialDate) - self.formatDate(self.__endDate)
+        return diff.months
+    
+    def getTotalAmount(self):
+        diff = self.formatDate(self.__initialDate) - self.formatDate(self.__endDate)
+        return (diff.months * self.getAmount())
+         
+    
 
 class Cost(Cash):
-    def __init__(self, amount: float, description: str, months: list):
+    def __init__(self, amount: float, description: str, date: str):
+        self.__date = date
         super().__init__(amount, description)
-        self.__periodCost = self.getAmount()
-        self.__months = months
-        self.__numPeriods = len(months)
-        self.__totalCost = (self.__numPeriods * self.__periodCost)
     
-    def getPeriodCost(self):
-        return self.__periodCost
-
-    def getMonths(self):
-        return self.__months
-
-    def getTotalCost(self):
-        return self.__totalCost
-    
-    def getMonthCost(self,month: str):
-        cost = 0
-        if (month in self.__months):
-            cost += self.__periodCost
-        return cost
+    def getDate(self):
+        return self.__date
 
 
-class FixedCost(Cost):
-    def __init__(self, amount: float, description: str, months: list):
-        super().__init__(amount, description,months)
-
-
-class VariableCost(Cost):
-    def __init__(self, amount: float, description: str, month: str):
-        super().__init__(amount, description,[month])
+class FixedCost(__FixedCash):
+    def __init__(self, amount: float, description: str, initialDate: str,endDate: str):
+        super().__init__(amount, description,initialDate,endDate)
 
 
 class Income(Cash):
-    def __init__(self, amount: float, description: str, months: list):
+    def __init__(self, amount: float, description: str, date: str):
+        self.__date = date
         super().__init__(amount, description)
-        self.__periodIncome = self.getAmount()
-        self.__months = months
-        self.__numPeriods = len(months)
-        self.__totalCost = (self.__numPeriods * self.__periodIncome)
-
-    def getPeriodIncome(self):
-        return self.__periodIncome
     
-    def getMonths(self):
-        return self.__months
+    def getDate(self):
+        return self.__date
 
-    def getTotalIncome(self):
-        return self.__totalCost
-    
-    def getMonthIncome(self,month: str):
-        income = 0
-        if (month in self.__months):
-            income += self.__periodIncome
-        return income
+class FixedIncome(__FixedCash):
+    def __init__(self, amount: float, description: str, initialDate: str,endDate:str ):
+        super().__init__(amount, description,initialDate,endDate)
 
-class FixedIncome(Income):
-    def __init__(self, amount: float, description: str, months: list):
-        super().__init__(amount, description,months)
-
-
-class VariableIncome(Income):
-    def __init__(self, amount: float, description: str, month: str):
-        super().__init__(amount, description,[month])
 
 
