@@ -1,0 +1,64 @@
+name: juanfelipe
+fixedCosts:
+  - value: 120000
+    description: "Pago gimnasio ohana"
+    dates:
+      start: "2022/07/01"
+      end: "2022/12/01"
+  - value: 700000
+    description: "Pago arriendo Eliseos"
+    dates:
+      start: "2022/07/01"
+      end: "2022/12/01"
+  - value: 125000
+    description: "Salud mama"
+    dates:
+      start: "2022/07/01"
+      end: "2022/12/01"
+  - value: 1130000
+    description: "Deuda hermano"
+    dates:
+      start: "2022/07/01"
+      end: "2022/12/01"
+  - value: 167000
+    description: "Plan internet casa movistar"
+    dates:
+      start: "2022/07/01"
+      end: "2022/12/01"
+  - value: 167000
+    description: "Plan internet casa movistar"
+    dates:
+      start: "2022/07/01"
+      end: "2022/12/01"
+  - value: 32000
+    description: "Plan celular movistar"
+    dates:
+      start: "2022/07/01"
+      end: "2022/12/01"
+  - value: 1752000
+    description: "Pago cuota del carro a Sufi"
+    dates:
+      start: "2022/07/01"
+      end: "2022/12/01"
+costs:
+  - value: 320000
+    description: "Pago soat carro"
+    date: "2022/08/15"
+  - value: 3980771
+    description: "Deuda tarjeta credito"
+    date: "2022/10/30"
+fixedIncomes:
+  - value: 5500000
+    description: "Nomina Seeri"
+    dates:
+      start: "2022/07/01"
+      end: "2022/12/01"
+incomes:
+  - value: 1000000
+    description: "Anticipo ngram 40%"
+    date: "2022/10/28"
+  - value: 3857779
+    description: "saldo tarjeta devito"
+    date: "2022/10/30"
+
+
