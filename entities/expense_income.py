@@ -48,8 +48,6 @@ class __FixedCash(Cash):
     def getTotalAmount(self):
         diff = self.formatDate(self.__initialDate) - self.formatDate(self.__endDate)
         return (diff.months * self.getAmount())
-         
-    
 
 class Cost(Cash):
     def __init__(self, amount: float, description: str, date: str):
@@ -59,11 +57,9 @@ class Cost(Cash):
     def getDate(self):
         return self.__date
 
-
 class FixedCost(__FixedCash):
     def __init__(self, amount: float, description: str, initialDate: str,endDate: str):
         super().__init__(amount, description,initialDate,endDate)
-
 
 class Income(Cash):
     def __init__(self, amount: float, description: str, date: str):

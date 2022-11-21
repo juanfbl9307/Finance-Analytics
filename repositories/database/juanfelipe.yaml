@@ -44,9 +44,9 @@ costs:
   - value: 320000
     description: "Pago soat carro"
     date: "2022/08/15"
-  - value: 3980771
+  - value: 4999612
     description: "Deuda tarjeta credito"
-    date: "2022/10/30"
+    date: "2022/11/18"
 fixedIncomes:
   - value: 5500000
     description: "Nomina Seeri"
@@ -57,8 +57,12 @@ incomes:
   - value: 1000000
     description: "Anticipo ngram 40%"
     date: "2022/10/28"
-  - value: 3857779
-    description: "saldo tarjeta devito"
-    date: "2022/10/30"
+  - value: 388488
+    description: "saldo tarjeta debito"
+    date: "2022/11/18"
+  - value: 1380000
+    description: "saldo paypal"
+    date: "2022/11/18"
+  
 
 
